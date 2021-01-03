@@ -22,6 +22,13 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
+      - run: cat D:\a\jruby_test\jruby_test\vendor\bundle\jruby\2.6.0\bin\rake
+        if: matrix.ruby == 'jruby-head'
+      - run: ls D:\a\jruby_test\jruby_test\vendor\bundle\jruby\2.6.0\bin
+        if: matrix.ruby == 'jruby-head'
+      - run: cat D:/a/jruby_test/jruby_test/vendor/bundle/jruby/2.6.0/gems/rake-12.3.3/exe/rake
+        if: matrix.ruby == 'jruby-head'
+
       - name: Run Build
-        run: bundle exec rake build
+        run: bundle exec rake build --trace
         shell: bash
