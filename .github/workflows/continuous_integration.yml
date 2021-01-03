@@ -24,3 +24,4 @@ jobs:
 
       - name: Run Build
         run: bundle exec rake build
+        shell: bash
